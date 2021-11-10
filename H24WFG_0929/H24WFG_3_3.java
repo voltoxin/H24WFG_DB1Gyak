@@ -1,29 +1,43 @@
+package h24wfg;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.InputStreamReader;
 
-public class hf{
-	public void hf1 () {
+public class H24WFG_3_3 {
+
+	public static void main(String[] args) {
+
+		olvasas();
+	}
+
+	public static void olvasas() {
 		String sor;
 		String[] szavak;
 		int sorid = 0;
-		try{
+		try {
+			System.out.println("Az elsõ szó a txt fájl neve\n");
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 			BufferedWriter bw = null;
+			System.out.println("Írj szavakat, a program az 'end' szóig olvas!\n");
 			
-			while (sorid >=0) {
+			
+			
+			while (sorid >= 0) {
 				sor = br.readLine();
-				if (sorid==0) {
+				if (sorid == 0) {
 					bw = new BufferedWriter(new FileWriter(sor));
 				} else {
 					bw.write(sor);
 					bw.newLine();
+					
+					
+					
 				}
 				sorid = sorid + 1;
 				szavak = sor.split(" ");
 				for (String sz : szavak) {
-					System.out.println(sz+":");
 					if (sz.compareTo("end") == 0) {
 						br.close();
 						sorid = -1;
@@ -32,8 +46,10 @@ public class hf{
 			}
 			bw.close();
 			System.out.println("Ok");
-		}catch (Exception ee) {
+		} catch (Exception ee) {
 			ee.printStackTrace();
 		}
+				
 	}
+
 }
